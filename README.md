@@ -32,7 +32,7 @@ More Features Coming Soon....
 
 ## Bot Screenshot
 
-![stats](https://media.discordapp.net/attachments/898221459393097809/952855604412690432/jarry_stats.png?width=454&height=416)
+![stats](https://cdn.discordapp.com/attachments/982938139884683267/987570130215141407/IMG_20220618_111059.jpg?width=454&height=416)
 
 ![help cmd](https://media.discordapp.net/attachments/898221459393097809/952855603095679056/jarry_help.png?width=456&height=422)
 
