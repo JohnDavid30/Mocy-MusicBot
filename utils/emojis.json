@@ -1,0 +1,11 @@
+{
+"progress_bar": {
+      "emptybeginning": "[",
+      "emptyend": "]",
+      "leftindicator": "[",
+      "rightindicator": "]",
+
+      "emptyframe": "<:empty_bar:983024335704952893>", 
+      "filledframe": "<:Blue_bar:985807788951363594>" 
+    }
+}
