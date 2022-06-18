@@ -1,23 +1,24 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 
 module.exports = {
-  name: 'vaporwave',
+  name: 'earrape',
   category: 'Filters',
-  aliases: ['vw'],
-  description: 'Set VaporWave Filter. ⭐',
+  aliases: ['er'],
+  description: 'Set EarRape Filter ⭐',
   args: false,
-  usage: 'vaporwave',
+  usage: 'earrape',
   userPrams: [],
   botPrams: ['EMBED_LINKS'],
   owner: false,
   player: true,
   dj: true,
-  pro: true,
+pro: true,
+
   inVoiceChannel: true,
   sameVoiceChannel: true,
   run: async (message, args, client, prefix) => {
     const player = client.manager.players.get(message.guild.id);
-    if (!player.queue.current) {
+    if (!player.current) {
       let thing = new MessageEmbed().setColor('RED').setDescription('There is no music playing.');
       return message.reply({ embeds: [thing] });
     }
@@ -27,10 +28,7 @@ module.exports = {
       .setDescription(`Chose The Buttons`);
 
     const but = new MessageButton().setCustomId('clear_but').setLabel('OFF').setStyle('DANGER');
-    const but2 = new MessageButton()
-      .setCustomId('vaporwave_but')
-      .setLabel('ON')
-      .setStyle('PRIMARY');
+    const but2 = new MessageButton().setCustomId('EarRape_but').setLabel('ON').setStyle('PRIMARY');
 
     const but_ = new MessageButton()
       .setCustomId('clear_but_')
@@ -38,7 +36,7 @@ module.exports = {
       .setStyle('DANGER')
       .setDisabled(true);
     const but_2 = new MessageButton()
-      .setCustomId('vaporwave_but_')
+      .setCustomId('EarRape_but_')
       .setLabel('ON')
       .setStyle('PRIMARY')
       .setDisabled(true);
@@ -59,7 +57,7 @@ module.exports = {
     collector.on('end', async () => {
       if (!m) return;
       await m.edit({
-        embeds: [embed1.setDescription(`Time is Out type again ${prefix}vaporwave`)],
+        embeds: [embed1.setDescription(`Time is Out type again ${prefix}earrape`)],
         components: [
           new MessageActionRow().addComponents(but2.setDisabled(true), but.setDisabled(true)),
         ],
@@ -70,13 +68,16 @@ module.exports = {
       if (b.customId === 'clear_but') {
         await player.clearEffects();
         return await b.editReply({
-          embeds: [embed1.setDescription(`${emojiequalizer} Vaporwave Mode Is \`OFF\``)],
+          embeds: [embed1.setDescription(`${emojiequalizer} EarRape Mode Is \`OFF\``)],
           components: [row2],
         });
-      } else if (b.customId === 'vaporwave_but') {
-        await player.setVaporwave(true);
+      } else if (b.customId === 'EarRape_but') {
+                  var earrape = [
+            500
+        ];
+        await player.setVolume(earrape)
         return await b.editReply({
-          embeds: [embed1.setDescription(`${emojiequalizer} Vaporwave Mode Is \`ON\``)],
+          embeds: [embed1.setDescription(`${emojiequalizer} EarRape Mode Is \`ON\``)],
           components: [row1],
         });
       }

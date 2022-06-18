@@ -1,12 +1,12 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 
 module.exports = {
-  name: 'vaporwave',
+  name: 'treblebass',
   category: 'Filters',
-  aliases: ['vw'],
-  description: 'Set VaporWave Filter. ⭐',
+  aliases: ['tb'],
+  description: 'Set TrebleBass Filter ⭐',
   args: false,
-  usage: 'vaporwave',
+  usage: 'treblebass',
   userPrams: [],
   botPrams: ['EMBED_LINKS'],
   owner: false,
@@ -17,7 +17,7 @@ module.exports = {
   sameVoiceChannel: true,
   run: async (message, args, client, prefix) => {
     const player = client.manager.players.get(message.guild.id);
-    if (!player.queue.current) {
+    if (!player.current) {
       let thing = new MessageEmbed().setColor('RED').setDescription('There is no music playing.');
       return message.reply({ embeds: [thing] });
     }
@@ -28,7 +28,7 @@ module.exports = {
 
     const but = new MessageButton().setCustomId('clear_but').setLabel('OFF').setStyle('DANGER');
     const but2 = new MessageButton()
-      .setCustomId('vaporwave_but')
+      .setCustomId('treblebass_but')
       .setLabel('ON')
       .setStyle('PRIMARY');
 
@@ -38,7 +38,7 @@ module.exports = {
       .setStyle('DANGER')
       .setDisabled(true);
     const but_2 = new MessageButton()
-      .setCustomId('vaporwave_but_')
+      .setCustomId('treblebass_but_')
       .setLabel('ON')
       .setStyle('PRIMARY')
       .setDisabled(true);
@@ -59,7 +59,7 @@ module.exports = {
     collector.on('end', async () => {
       if (!m) return;
       await m.edit({
-        embeds: [embed1.setDescription(`Time is Out type again ${prefix}vaporwave`)],
+        embeds: [embed1.setDescription(`Time is Out type again ${prefix}treblebass`)],
         components: [
           new MessageActionRow().addComponents(but2.setDisabled(true), but.setDisabled(true)),
         ],
@@ -70,13 +70,30 @@ module.exports = {
       if (b.customId === 'clear_but') {
         await player.clearEffects();
         return await b.editReply({
-          embeds: [embed1.setDescription(`${emojiequalizer} Vaporwave Mode Is \`OFF\``)],
+          embeds: [embed1.setDescription(`${emojiequalizer} TrebleBass Mode Is \`OFF\``)],
           components: [row2],
         });
-      } else if (b.customId === 'vaporwave_but') {
-        await player.setVaporwave(true);
+      } else if (b.customId === 'treblebass_but') {
+                  var bands = [
+            { band: 0, gain: 0.6 },
+            { band: 1, gain: 0.67 },
+            { band: 2, gain: 0.67 },
+            { band: 3, gain: 0 },
+            { band: 4, gain: -0.5 },
+            { band: 5, gain: 0.15 },
+            { band: 6, gain: -0.45 },
+            { band: 7, gain: 0.23 },
+            { band: 8, gain: 0.35 },
+            { band: 9, gain: 0.45 },
+            { band: 10, gain: 0.55 },
+            { band: 11, gain: 0.6 },
+            { band: 12, gain: 0.55 },
+            { band: 13, gain: 0 },
+            { band: 14, gain: 0 },
+          ];
+          await player.setEQ(...bands);
         return await b.editReply({
-          embeds: [embed1.setDescription(`${emojiequalizer} Vaporwave Mode Is \`ON\``)],
+          embeds: [embed1.setDescription(`${emojiequalizer} TrebleBass Mode Is \`ON\``)],
           components: [row1],
         });
       }
