@@ -1,12 +1,12 @@
 require("dotenv").config();
 
 module.exports = {
-    token: process.env.TOKEN || "OTg0MDM4ODU1OTIzNjIxOTA4.GOR5bl.2uVuvg5nXmCZA3vr4pQMicn762NI0E_6ptJuwE",  //
-    prefix: process.env.PREFIX || "<", // bot prefix
+    token: process.env.TOKEN || "",  //
+    prefix: process.env.PREFIX || ">", // bot prefix
     ownerID: ["786913832714240000", "396906512469196811", "541961223525236736"], //your discord id
     SpotifyID: process.env.SPOTIFYID || "5986ea56d7cd4bbda134198ebd42c2d3", // spotify client id
     SpotifySecret: process.env.SPOTIFYSECRET || "79afab0730584f3b9aaae78477e10654", // spotify client secret
-    mongourl: process.env.MONGO_URI || "mongodb+srv://qqq:qqq@my.cq5sv.mongodb.net/Royal3?retryWrites=true&w=majority", // MongoDb URL
+    mongourl: process.env.MONGO_URI || "mongodb+srv://qqq:qqq@my.cq5sv.mongodb.net/Royal7?retryWrites=true&w=majority", // MongoDb URL
     embedColor: process.env.COlOR || "#303236", // embed colour
     logs: process.env.LOGS || "918347187384119336", // channel id for guild create and delete logs
     links: 
