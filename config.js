@@ -20,10 +20,10 @@ module.exports = {
 
     nodes: [
     {
-      host: process.env.NODE_HOST || "n2.luxxy.host",
-      identifer: process.env.NODE_ID || "VIBELY SERVER 1",
-      port: parseInt(process.env.NODE_PORT || "1922"),
-      password: process.env.NODE_PASSWORD || "youshallnotpass",
+      host: process.env.NODE_HOST || "lava4.horizxon.studio",
+      identifer: process.env.NODE_ID || "Main",
+      port: parseInt(process.env.NODE_PORT || "80"),
+      password: process.env.NODE_PASSWORD || "horizxon.studio",
       secure: parseBoolean(process.env.NODE_SECURE || "false"),
 
     }
